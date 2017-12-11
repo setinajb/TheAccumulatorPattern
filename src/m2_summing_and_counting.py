@@ -10,7 +10,7 @@ Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
          their colleagues and PUT_YOUR_NAME_HERE.
 """  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
-
+import math
 # ----------------------------------------------------------------------
 # Students: As you work each of these problems, ask yourself:
 #   1. Do I need a loop?
@@ -95,6 +95,13 @@ def sum_more_cosines(m, n):
     #   Reason: To ensure that you get more practice using variables.
     # ------------------------------------------------------------------
 
+    ans = 0
+    for k in range(m, n+1):
+        ans = ans + math.cos(k)
+        print(m, n, k)
+    return ans
+
+
 
 def run_test_count_sines_from():
     """ Tests the   count_sines_from   function. """
@@ -150,6 +157,14 @@ def count_sines_from(m, n):
     #   you must NOT use the 2 or 3-parameter versions
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
+    counter = 0
+    for k in range(m, n + 1):
+        if math.sin(k) < 0.5:
+            counter = counter + 1
+    return counter
+
+
+
 
 
 def run_test_count_sines_vs_cosines():
@@ -211,7 +226,11 @@ def count_sines_vs_cosines(m):
     #   you must NOT use the 2 or 3-parameter versions
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
-
+    counter = 0
+    for k in range(-m, m + 1):
+        if math.sin(k) > math.cos(k):
+            counter = counter + 1
+    return counter
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
